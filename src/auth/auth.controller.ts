@@ -1,4 +1,11 @@
-import { Body, Controller, Post, UseInterceptors } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  HttpStatus,
+  Post,
+  UseInterceptors,
+} from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { AuthDto } from './dto';
 import { FileInterceptor } from '@nestjs/platform-express';
@@ -13,6 +20,7 @@ export class AuthController {
     return this.authService.signup(body);
   }
 
+  @HttpCode(HttpStatus.OK)
   @Post('signin')
   @UseInterceptors(FileInterceptor('file'))
   signIn(@Body() body: AuthDto) {

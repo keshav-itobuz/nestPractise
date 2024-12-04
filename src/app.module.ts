@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { AuthModule } from './auth/auth.module';
 import { UserModule } from './user/user.module';
-import { BookmarkModule } from './bookmark/bookmark.module';
+import { NotesModule } from './notes/notes.module';
 import { PrismaModule } from './prisma/prisma.module';
 import { ConfigModule } from '@nestjs/config';
 
@@ -9,7 +9,7 @@ import { ConfigModule } from '@nestjs/config';
   imports: [
     AuthModule,
     UserModule,
-    BookmarkModule,
+    NotesModule,
     PrismaModule,
     ConfigModule.forRoot({ isGlobal: true }),
   ],
